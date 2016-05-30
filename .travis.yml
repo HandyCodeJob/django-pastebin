@@ -5,15 +5,10 @@ language: python
 python:
   - "2.6"
   - "2.7"
-  - "3.2"
-  - "3.3"
   - "3.4"
 env:
   matrix:
    - DJANGO="Django<1.5"
-   - DJANGO="Django<1.6"
-   - DJANGO="Django<1.7"
-   - DJANGO="Django<1.8"
    - DJANGO="Django<1.9"
    - DJANGO="Django<1.10"
 cache:
@@ -39,7 +34,7 @@ branches:
  only:
   - master
 script:
-  - flake8 --exclude=migrations,south_migrations pastebin
+    # - flake8 --exclude=migrations,south_migrations pastebin
   - coverage run manage.py test pastebin
 after_success:
   - coverage report
